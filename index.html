@@ -3,41 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudPlay OS - Gaming Hub</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://copy.sh/v86/build/libv86.js"></script>
+    <title>Run TinyOS</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>🎮 CloudPlay OS</h1>
-    </header>
-
-    <div class="container">
-        <h2>🔥 Play Tiny OS in Browser</h2>
-        <div id="os"></div>
-        <button id="startOs">Start OS</button>
+    <h1>Run TinyOS in Your Browser</h1>
+    <button id="startOS">Start TinyOS</button>
+    <div id="osContainer" class="hidden">
+        <iframe id="osFrame" width="800" height="600"></iframe>
     </div>
-
-    <div class="container">
-        <h2>🎮 Game Streaming & Downloads</h2>
-        <button onclick="loadFromDrive('YOUR_FILE_ID')">🔽 Download from Google Drive</button>
-        <button onclick="loadFromTeraBox()">🎮 Stream from TeraBox</button>
-    </div>
-
-    <iframe id="teraboxFrame" width="100%" height="500px" style="display:none;"></iframe>
 
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.min.js"></script>
-<script>
-    var joystick = nipplejs.create({
-        zone: document.getElementById('os'),
-        mode: 'dynamic',
-        color: 'red'
-    });
-
-    joystick.on('move', function (evt, data) {
-        console.log("Joystick Moved: ", data);
-    });
-</script>
 </body>
 </html>
