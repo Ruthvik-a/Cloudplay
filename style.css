@@ -1,33 +1,100 @@
+/* General Styling */
 body {
-    background-color: #121212;
-    color: #fff;
-    font-family: Arial, sans-serif;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background: black;
+    overflow: hidden;
 }
 
-header {
-    background: linear-gradient(90deg, red, black);
-    padding: 15px;
-    font-size: 24px;
+/* Live Background Animation */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.gifer.com/7WlI.gif') center/cover no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+    animation: moveBg 20s linear infinite;
 }
 
-.container {
-    margin: 20px;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #1e1e1e;
+@keyframes moveBg {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
+/* Title Styling */
+h1 {
+    font-size: 32px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ff0000;
+    text-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+}
+
+/* Button Styling */
 button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 18px;
-    background: red;
+    padding: 12px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #ff0000, #ff7300);
     color: white;
     border: none;
-    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+    outline: none;
 }
 
 button:hover {
-    background: darkred;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 25px rgba(255, 102, 0, 0.9);
+}
+
+/* OS Window Container */
+#osContainer {
+    width: 820px;
+    height: 620px;
+    margin: 30px auto;
+    padding: 10px;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+/* OS Frame (Embedded Window) */
+#osFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Animation */
+.hidden {
+    display: none;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
